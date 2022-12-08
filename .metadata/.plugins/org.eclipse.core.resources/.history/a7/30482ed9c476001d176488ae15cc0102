@@ -1,0 +1,55 @@
+package com.springboot.school.app;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class SchoolTestController {
+	//GET
+	//localhost:8080/school
+	
+	school[] schools = {};
+	
+	@GetMapping("/test")
+	public String serverRunning() {
+		return "Server is running!";
+	}
+	
+	@GetMapping("/school")
+	public school[] getSchools() {
+		return this.schools;
+	}
+	
+	@PostMapping("/school")
+	public school[] addSchool(HttpServletRequest request) {
+		school schools = new school();
+		System.out.println(request.getReader()));
+//		schools.setId(Integer.parseInt(request.getParameter("id")));
+//		schools.setName(request.getParameter("name"));
+
+		return this.schools;
+	}
+
+}
+
+
+class school {
+	private Integer id;
+	private String name;
+	
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+}
